@@ -151,6 +151,7 @@ body.nav-active { overflow: hidden; }
 
 .container { padding-inline: 12px; }
 
+
 .section { padding-block: var(--section-padding); }
 
 .h1 {
@@ -161,7 +162,7 @@ body.nav-active { overflow: hidden; }
 .h1,
 .h2,
 .h4 {
-  color: var(--white);
+  color: var(--green);
   line-height: 1;
 }
 
@@ -481,11 +482,19 @@ body.nav-active { overflow: hidden; }
   margin-block: 10px 30px;
 }
 
+/* .hero-banner {
+  border-radius: var(--blob-radius);
+  overflow:hidden;
+  animation: blobAnim 30s linear infinite;
+} */
+
 .hero-banner {
   border-radius: var(--blob-radius);
   overflow: hidden;
   animation: blobAnim 30s linear infinite;
+  margin-top: 65px;   /* adjust to your navbar height */
 }
+
 
 @keyframes blobAnim {
 
@@ -793,7 +802,7 @@ body.nav-active { overflow: hidden; }
     gap: 10%;
   }
 
-  .title-wrapper .section-title { margin-block-end: 0; }
+  .title-wrapper .section-title { margin-block-end: 0px; }
 
   .title-wrapper .section-text { margin-block-start: 40px; }
 
@@ -810,7 +819,7 @@ body.nav-active { overflow: hidden; }
     top: 50%;
     left: 0;
     transform: translateY(-50%);
-    width: 55%;
+    width: 35%;
     z-index: -1;
   }
 
