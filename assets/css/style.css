@@ -878,6 +878,9 @@ body.nav-active { overflow: hidden; }
   /**
    * CUSTOM PROPERTY
    */
+   .hero-banner{
+    width:10%
+   }
 
   :root {
 
