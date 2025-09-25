@@ -483,7 +483,8 @@ body.nav-active { overflow: hidden; }
 }
 
 /* .hero-banner {
-  border-radius: var(--blob-radius);
+  border-radius: var(
+  --blob-radius);
   overflow:hidden;
   animation: blobAnim 30s linear infinite;
 } */
@@ -816,17 +817,17 @@ body.nav-active { overflow: hidden; }
 
   .hero-banner {
     position: absolute;
-    top: 50%;
-    left: 0;
+    top: 30%;
+    left: 20%;
     transform: translateY(-50%);
-    width: 35%;
+    width: 20%;
     z-index: -1;
   }
 
   .hero-content {
     width: 50%;
     margin-inline-start: auto;
-    padding-block: 10%;
+    padding-block: 3%;
   }
 
   .hero-title,
