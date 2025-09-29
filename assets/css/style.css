@@ -433,6 +433,7 @@ body.nav-active { overflow: hidden; }
 
 .navbar.active {
   transform: translateX(-370px);
+  
   visibility: visible;
   transition-timing-function: var(--cubic-out);
 }
@@ -536,7 +537,7 @@ body.nav-active { overflow: hidden; }
 /*-----------------------------------*\
   #SERVICE
 \*-----------------------------------*/
-
+/* 
 .service-card {
   position: relative;
   background-color: var(--white);
@@ -572,39 +573,133 @@ body.nav-active { overflow: hidden; }
 .service-card:is(:hover, :focus-within) {
   background-color: var(--raisin-black);
   --content-color: var(--white);
-}
+} */
 
 
-
-
-
-/*-----------------------------------*\
-  #SKILLS
-\*-----------------------------------*/
-
-.skills .section-text { margin-block-end: 20px; }
-
-.skills .btn { margin-block: 45px; }
-
-.skills-list li:not(:last-child) { margin-block-end: 30px; }
-
-.progress-wrapper {
-  display: flex;
-  justify-content: space-between;
-  font-weight: var(--fw-700);
-  margin-block-end: 5px;
-}
-
-.progress-bg {
-  height: 6px;
-  background-color: var(--raisin-black);
-  border-radius: var(--radius-pill);
-}
-
-.progress {
-  height: inherit;
+/* ---------- About Me Section ---------- */
+/* ---------- Service Card Base ---------- */
+.service-card {
+  position: relative;
   background-color: var(--white);
-  border-radius: inherit;
+  height: 100%;
+  padding: 60px 40px 40px;
+  border-radius: 1.2rem;
+  transition: var(--transition-2);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.service-card .card-icon ion-icon {
+  color: var(--content-color, var(--raisin-black));
+  font-size: 6rem;
+  --ionicon-stroke-width: 15px;
+  margin-bottom: 1.2rem;
+  transition: transform 0.3s ease;
+}
+
+.service-card .card-title {
+  color: var(--content-color, var(--raisin-black));
+  font-size: 1.5rem;
+  margin-block: 20px;
+}
+
+.service-card .card-text {
+  color: var(--content-color);
+  font-size: 1rem;
+  line-height: 1.6;
+  flex-grow: 1;
+}
+
+.service-card .card-number {
+  margin-inline-start: auto;
+  font-weight: var(--fw-800);
+  line-height: 0.6;
+  max-width: max-content;
+  margin-block-start: 32px;
+  -webkit-text-stroke: 1px var(--content-color, var(--black));
+  -webkit-text-fill-color: transparent;
+  opacity: 0.3;
+  transition: opacity 0.3s ease;
+}
+
+/* ---------- Hover / Focus Effects ---------- */
+.service-card:is(:hover, :focus-within) {
+  background-color: var(--raisin-black);
+  --content-color: var(--white);
+}
+
+.service-card:is(:hover, :focus-within) .card-icon ion-icon {
+  transform: scale(1.1);
+}
+
+.service-card:is(:hover, :focus-within) .card-number {
+  opacity: 0.5;
+}
+
+/* ---------- Layer Link ---------- */
+.layer-link {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  z-index: 5;
+}
+
+/* ---------- Slider Container ---------- */
+.slider-container {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+  padding: 0;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+}
+
+.slider-item {
+  flex: 0 0 300px;
+}
+
+/* ---------- Slider Controls ---------- */
+.slider-controls {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.slider-control {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  border: none;
+  background: var(--white);
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  transition: var(--transition-1);
+}
+
+.slider-control:hover {
+  background: var(--raisin-black);
+}
+
+.slider-control .line,
+.slider-control .arrow {
+  background: var(--raisin-black);
+  width: 18px;
+  height: 2px;
+}
+
+.slider-control .arrow {
+  transform: rotate(45deg);
+  margin-top: -4px;
+}
+
+.slider-control.prev .arrow {
+  transform: rotate(-135deg);
+}
+
+.slider-control.next .arrow {
+  transform: rotate(45deg);
 }
 
 
