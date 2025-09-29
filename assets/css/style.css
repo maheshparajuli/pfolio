@@ -1090,7 +1090,7 @@ body.nav-active { overflow: hidden; }
             gap: 2rem;
         }
 
-        .blog-card {
+       .blog-card {
             background: white;
             border-radius: 8px;
             box-shadow: 0 2px 8px rgba(0,0,0,0.1);
@@ -1098,12 +1098,33 @@ body.nav-active { overflow: hidden; }
             text-decoration: none;
             color: inherit;
             overflow: hidden;
-        }
+        } 
 
-        .blog-card:hover {
+        /* .blog-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 4px 16px rgba(0,0,0,0.15);
-        }
+        } */
+
+        /* .blog-card {
+  border-radius: 12px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+} */
+
+.blog-card:hover {
+  transform: translateY(-8px);  /* lift up */
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15); /* shadow */
+}
+
+/* Optional: image zoom effect */
+.blog-card .card-banner img {
+  transition: transform 0.4s ease;
+}
+
+.blog-card:hover .card-banner img {
+  transform: scale(1.05); /* zoom in */
+}
 
         .blog-image {
             width: 100%;
