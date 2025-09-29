@@ -147,3 +147,15 @@ const initSlider = function (currentSlider) {
 }
 
 for (let i = 0, len = sliders.length; i < len; i++) { initSlider(sliders[i]); }
+
+
+  // // get navbar and links
+  // const navbar = document.querySelector(".navbar");
+  // const navLinks = document.querySelectorAll(".navbar-link");
+
+  // navLinks.forEach(link => {
+  //   link.addEventListener("click", () => {
+  //     navbar.classList.remove("active"); // hide navbar
+  //   });
+  // });
+
