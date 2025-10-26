@@ -10,6 +10,8 @@
 
 
 
+
+
 /*-----------------------------------*\
   #CUSTOM PROPERTY
 \*-----------------------------------*/
@@ -532,6 +534,9 @@ body.nav-active { overflow: hidden; }
 
 
 
+.service{
+  margin-bottom: 50px;
+}
 
 
 /*-----------------------------------*\
@@ -636,6 +641,8 @@ body.nav-active { overflow: hidden; }
 .service-card:is(:hover, :focus-within) .card-number {
   opacity: 0.5;
 }
+
+
 
 /* ---------- Layer Link ---------- */
 .layer-link {
@@ -794,6 +801,7 @@ body.nav-active { overflow: hidden; }
 .footer .container {
   display: grid;
   gap: 20px;
+  /* margin-top: 20px; */
 }
 
 .social-list {

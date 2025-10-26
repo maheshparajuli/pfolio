@@ -1,62 +1,280 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Flask Blog</title>
-    <style>
-        /* body {
-            font-family: Arial, sans-serif;
-            background-color: #f8f9fa;
-            margin: 0;
-            padding: 0;
-        }
-        header {
-            background-color: #007bff;
-            color: white;
-            padding: 15px;
-            text-align: center;
-        }
-        main {
-            padding: 20px;
-            max-width: 800px;
-            margin: auto;
-        }
-        h1 {
-            color: #333;
-        }
-        footer {
-            text-align: center;
-            padding: 10px;
-            background-color: #eee;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-        }
-        a {
-            color: #007bff;
-            text-decoration: none;
-        }
-        a:hover {
-            text-decoration: underline;
-        } */
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Flask with Python</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #121212;
+      color: #e0e0e0;
+      margin: 0;
+      line-height: 1.6;
+      display: flex;
+    }
+
+    /* Sidebar styles */
+    .sidebar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 240px;
+      height: 100%;
+      background-color: #1e1e1e;
+      padding: 20px;
+      box-sizing: border-box;
+      overflow-y: auto;
+    }
+
+    .sidebar h2 {
+      color: #ffffff;
+      font-size: 1.2em;
+      margin-top: 0;
+    }
+
+    .sidebar a {
+      display: block;
+      color: #64b5f6;
+      text-decoration: none;
+      margin: 5px 0;
+    }
+
+    .sidebar a:hover {
+      text-decoration: underline;
+    }
+
+    .subsection {
+      margin-left: 15px;
+      font-size: 0.9em;
+    }
+
+    /* Main content styles */
+    .content {
+      margin-left: 260px; /* Sidebar width + padding */
+      padding: 20px;
+      flex: 1;
+    }
+
+    h1, h2, h3 {
+      color: #ffffff;
+    }
+
+    .meta {
+      font-size: 0.9em;
+      color: #999;
+      margin-bottom: 20px;
+    }
+
+    p {
+      margin-bottom: 15px;
+    }
+
+    a {
+      color: #64b5f6;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <h2>Welcome to My Flask Blog</h2>
-    </header>
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <h2>Contents</h2>
 
-    <main>
-        <h1>Hello, Flask!</h1>
-        <p>This is the <strong>flask.html</strong> file rendered by Flask.</p>
-        <p>You can edit this page freely and Flask will serve it from your <code>templates/</code> folder.</p>
+    <a href="#introduction">Introduction</a>
+    <div class="subsection">
+      <a href="#what-is-flask">What is Flask?</a>
+      <a href="#why-use-flask">Why Use Flask?</a>
+    </div>
 
-        <p><a href="/">Go Home</a></p>
-    </main>
+   
 
-    <footer>
-        &copy; 2025 My Flask Blog
-    </footer>
+     <a href="#GETandPOST ">GET and POST</a>
+    <div class="subsection">
+      <a href="#method1">Using Single function</a>
+      <a href="#method2">Using multiple functions</a>
+    </div>
+
+
+
+    <a href="#conclusion">Conclusion</a>
+  </div>
+
+  <!-- Main content -->
+  <div class="content">
+    <h1>Flask Fundamentals</h1>
+    <div class="meta">By Mahesh Parajuli | October 5, 2025</div>
+
+    <!-- Introduction -->
+    <h2 id="introduction">Introduction</h2>
+    <p>
+      Flask is a micro framework for web development. It is lightweight yet powerful, making it a great choice for both beginners and experienced developers.
+    </p>
+
+    <h3 id="what-is-flask">What is Flask?</h3>
+    <p>
+      Flask is a Python-based micro web framework used to build simple to complex web applications. It does not require particular tools or libraries, giving developers flexibility.
+    </p>
+
+    <h3 id="why-use-flask">Why Use Flask?</h3>
+    <p>
+      Flask provides simplicity, flexibility, and fine-grained control over application components. It’s ideal for learning how the web works at a deeper level.
+    </p>
+    <!-- get and post -->
+
+    <h2 id="GETandPOST">Understanding @app.route vs @app.get and @app.post in Flask</h2>
+
+<p>
+In Flask, there are multiple ways to handle different HTTP methods like <strong>GET</strong> and 
+<strong>POST</strong>. Let’s look at two common approaches and understand how they differ.
+</p>
+
+<h3 id="method1">🧩 Approach 1 — Combined Route</h3>
+
+<pre><code>@app.route('/login', methods=['GET', 'POST'])
+def login():
+    if request.method == 'POST':
+        return do_the_login()
+    else:
+        return show_the_login_form()
+</code></pre>
+
+<h4>✅ Explanation</h4>
+<p>
+In this approach, you define a single route (<code>/login</code>) and handle both 
+<code>GET</code> and <code>POST</code> requests inside one function. The logic 
+checks <code>request.method</code> at runtime to decide what to do depending on 
+how the client made the request.
+</p>
+
+<h4>🔸 Pros</h4>
+<ul>
+  <li>Only one function name (<code>login</code>) and one decorator.</li>
+  <li>Simple and concise for small routes or forms.</li>
+</ul>
+
+<h4>🔸 Cons</h4>
+<ul>
+  <li>Logic for GET and POST is mixed inside one function, making the code harder to maintain for larger projects.</li>
+</ul>
+
+<hr>
+
+<h3 id="method2">🧩 Approach 2 — Separate Routes (Modern Flask Style)</h3>
+
+<pre><code>@app.get('/login')
+def login_get():
+    return show_the_login_form()
+
+@app.post('/login')
+def login_post():
+    return do_the_login()
+</code></pre>
+
+<h4>✅ Explanation</h4>
+<p>
+Starting with Flask 2.0, you can use the shorthand decorators 
+<code>@app.get()</code> and <code>@app.post()</code> to clearly define separate 
+functions for each HTTP method.
+</p>
+
+<p>
+These are equivalent to:
+</p>
+
+<pre><code>@app.route('/login', methods=['GET'])
+@app.route('/login', methods=['POST'])
+</code></pre>
+
+<p>
+By separating GET and POST logic, your code becomes more organized and readable.
+</p>
+
+<h4>🔸 Pros</h4>
+<ul>
+  <li>Cleaner and easier to maintain — each function handles only one task.</li>
+  <li>No need to manually check <code>request.method</code>.</li>
+  <li>Better separation of concerns (<strong>GET</strong> → show form, <strong>POST</strong> → handle submission).</li>
+</ul>
+
+<h4>🔸 Cons</h4>
+<ul>
+  <li>Slightly more boilerplate — two functions instead of one.</li>
+  <li>Both functions must return consistent responses if they relate to the same page.</li>
+</ul>
+
+<hr>
+
+<p>
+In summary, both approaches work the same way, but the second one is the 
+<strong>modern, cleaner, and recommended</strong> method for Flask 2.0 and newer versions.
+</p>
+
+
+<!-- rendering templates -->
+ <h1>Where Flask Looks for HTML Templates</h1>
+  <p>
+    This part explains <strong>where Flask looks for your HTML templates</strong> when you use 
+    <code>render_template()</code>.
+  </p>
+
+  <h2>🧩 Case 1: If your Flask app is a single file (a module)</h2>
+  <p><strong>Example:</strong></p>
+  <pre>
+/application.py
+/templates/
+    /hello.html
+  </pre>
+
+  <p>
+    Here, your app is just one Python file (like <code>application.py</code>).  
+    Flask expects the <strong>templates</strong> folder to be in the same directory as that file.
+  </p>
+
+  <p>So when you call:</p>
+  <pre><code>render_template('hello.html')</code></pre>
+  <p>
+    Flask automatically looks inside the <strong>templates</strong> folder next to 
+    <code>application.py</code>.
+  </p>
+
+  <h2>🧩 Case 2: If your Flask app is a package (a folder with <code>__init__.py</code>)</h2>
+  <p><strong>Example:</strong></p>
+  <pre>
+/application/
+    /__init__.py
+    /templates/
+        /hello.html
+  </pre>
+
+  <p>
+    Here, your app is a <strong>package</strong> (because it has <code>__init__.py</code>).  
+    In this case, Flask looks for the <strong>templates</strong> folder inside your package folder.
+  </p>
+
+  <h2>✅ In short:</h2>
+  <p>
+    Flask always looks for your HTML templates inside a folder named <strong>templates</strong>,
+    either <span class="highlight">next to your main app file</span> or 
+    <span class="highlight">inside your package directory</span> — depending on how your project is structured.
+  </p>
+
+
+
+    
+    <!-- Conclusion -->
+    <h2 id="conclusion">Conclusion</h2>
+    <p>
+      Flask is perfect for beginners who want to understand how web applications work under the hood. With minimal setup, you can create powerful applications quickly.
+    </p>
+
+    <p>
+      Learn more from the <a href="https://flask.palletsprojects.com/">official Flask documentation</a>.
+    </p>
+  </div>
 </body>
 </html>
